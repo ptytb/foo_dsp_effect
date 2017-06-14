@@ -76,9 +76,13 @@
 #define IDC_DYNAMICSSLOWRATIO           1054
 #define IDD_WAHWAH1                     1054
 #define IDC_IIRGAIN                     1055
+#define IDD_TREMELO                     1055
 #define IDC_GAIN                        1056
+#define IDD_VIBRATO                     1056
 #define IDC_DYNAMICSGAIN                1057
+#define IDD_VIBRATO1                    1057
 #define IDC_IIRGAININFO                 1058
+#define IDD_TREMELO1                    1058
 #define IDC_DISPLAY_GAIN                1059
 #define IDC_DYNAMICSDISPLAY_GAIN        1060
 #define IDC_DISPLAY_PEAK                1061
@@ -169,15 +173,33 @@
 #define IDC_WAHLFOPHASEINFO1            1138
 #define IDC_CHECK1                      1140
 #define IDC_WAHENABLED                  1140
+#define IDC_VIBRATOENABLED              1140
+#define IDC_TREMELOENABLED              1140
+#define IDC_TREMELOFREQ                 1141
+#define IDC_TREMELOFREQLAB              1142
+#define IDC_TREMELODEPTH                1143
+#define IDC_TREMELODEPTHLAB             1144
+#define IDC_VIBRATOFREQ                 1145
+#define IDC_VIBRATOFREQLAB              1146
+#define IDC_VIBRATODEPTH                1147
+#define IDC_VIBRATODEPTHLAB             1148
+#define IDC_VIBRATOFREQ1                1149
+#define IDC_VIBRATOFREQLAB1             1153
+#define IDC_VIBRATODEPTH1               1154
+#define IDC_VIBRATODEPTHLAB1            1155
+#define IDC_TREMELOFREQ1                1156
+#define IDC_TREMELOFREQLAB1             1157
+#define IDC_TREMELODEPTH1               1158
+#define IDC_TREMELODEPTHLAB1            1159
 #define IDC_SLIDER                      -1
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        122
+#define _APS_NEXT_RESOURCE_VALUE        123
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1141
+#define _APS_NEXT_CONTROL_VALUE         1160
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

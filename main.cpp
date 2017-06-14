@@ -1,7 +1,7 @@
 #include "../SDK/foobar2000.h"
 #include "SoundTouch/SoundTouch.h"
 #include "dsp_guids.h"
-#define MYVERSION "0.20.4"
+#define MYVERSION "0.21"
 
 static pfc::string_formatter g_get_component_about()
 {
@@ -47,6 +47,12 @@ public:
 			::ReverbMainMenuWindow();
 			break;
 		case 6:
+			::TremeloMainMenuWindow();
+			break;
+		case 7:
+			::VibratoMainMenuWindow();
+			break;
+		case 8:
 			::WahMainMenuWindow();
 			break;
 		}
@@ -56,7 +62,7 @@ public:
 
 	t_uint32 get_command_count()
 	{
-		return 7;
+		return 9;
 	}
 
 	GUID get_parent() { return g_mainmenu_group_id; }
@@ -97,6 +103,14 @@ public:
 			break;
 		case 6:
 			p_out.reset();
+			p_out += "Tremelo";
+			break;
+		case 7:
+			p_out.reset();
+			p_out += "Vibrato";
+			break;
+		case 8:
+			p_out.reset();
 			p_out += "WahWah";
 			break;
 		}
@@ -128,6 +142,12 @@ public:
 			p_out = "Opens a window for reverberation adjustment.";
 			break;
 		case 6:
+			p_out = "Opens a window for tremelo control.";
+			break;
+		case 7:
+			p_out = "Opens a window for vibrato control.";
+			break;
+		case 8:
 			p_out = "Opens a window for wah effect control.";
 			break;
 		}
@@ -160,6 +180,12 @@ public:
 			p_text = "Reverb";
 			break;
 		case 6:
+			p_text = "Tremelo";
+			break;
+		case 7:
+			p_text = "Vibrato";
+			break;
+		case 8:
 			p_text = "WahWah";
 			break;
 		}
