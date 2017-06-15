@@ -121,12 +121,12 @@ DSP without presets
 // of the DSP service class. It will buffer one chunk at a time,
 // thereby introducing latency in the DSP chain (and some overhead
 // for copying data around).
-class dsp_tutorial_nopreset : public dsp_impl_base
+class dsp_chorus : public dsp_impl_base
 {
 	int m_rate, m_ch, m_ch_mask;
 	pfc::array_t<Chorus> m_buffers;
 public:
-	dsp_tutorial_nopreset():m_rate(0), m_ch(0), m_ch_mask(0) {
+	dsp_chorus():m_rate(0), m_ch(0), m_ch_mask(0) {
 		// Mark buffer as empty.
 	}
 
@@ -236,6 +236,6 @@ public:
 // preset support.
 // Note that there can be multiple instances of a DSP which are used in
 // different threads.
-static dsp_factory_nopreset_t<dsp_tutorial_nopreset> foo_dsp_tutorial_nopreset;
+static dsp_factory_nopreset_t<dsp_chorus> foo_dsp_tutorial_nopreset;
 
 
