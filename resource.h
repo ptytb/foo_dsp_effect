@@ -77,6 +77,7 @@
 #define IDD_WAHWAH1                     1054
 #define IDC_IIRGAIN                     1055
 #define IDD_TREMELO                     1055
+#define IDD_TREMoLO                     1055
 #define IDC_GAIN                        1056
 #define IDD_VIBRATO                     1056
 #define IDC_DYNAMICSGAIN                1057

@@ -70,7 +70,7 @@ public:
 	// so it would be a bad name. We can excuse this, because it
 	// doesn't do anything useful anyway.
 	static void g_get_name(pfc::string_base & p_out) {
-		p_out = "Tremelo";
+		p_out = "Tremolo";
 	}
 
 	virtual void on_endoftrack(abort_callback & p_abort) {
@@ -287,7 +287,7 @@ public:
 		echo_enabled = true;
 
 	}
-	enum { IDD = IDD_VIBRATO1 };
+	enum { IDD = IDD_TREMELO1 };
 	enum
 	{
 		FreqMin = 200,

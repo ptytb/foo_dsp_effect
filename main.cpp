@@ -103,7 +103,7 @@ public:
 			break;
 		case 6:
 			p_out.reset();
-			p_out += "Tremelo";
+			p_out += "Tremolo";
 			break;
 		case 7:
 			p_out.reset();
@@ -142,7 +142,7 @@ public:
 			p_out = "Opens a window for reverberation adjustment.";
 			break;
 		case 6:
-			p_out = "Opens a window for tremelo control.";
+			p_out = "Opens a window for tremolo control.";
 			break;
 		case 7:
 			p_out = "Opens a window for vibrato control.";
@@ -180,7 +180,7 @@ public:
 			p_text = "Reverb";
 			break;
 		case 6:
-			p_text = "Tremelo";
+			p_text = "Tremolo";
 			break;
 		case 7:
 			p_text = "Vibrato";
