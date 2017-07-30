@@ -25,7 +25,7 @@ static const GUID guid_vibrato =
 
 
 
-
+void ChorusMainMenuWindow();
 void DynamicsMainMenuWindow();
 void EchoMainMenuWindow();
 void IIRMainMenuWindow();

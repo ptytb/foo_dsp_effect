@@ -77,7 +77,6 @@
 #define IDD_WAHWAH1                     1054
 #define IDC_IIRGAIN                     1055
 #define IDD_TREMELO                     1055
-#define IDD_TREMoLO                     1055
 #define IDC_GAIN                        1056
 #define IDD_VIBRATO                     1056
 #define IDC_DYNAMICSGAIN                1057
@@ -85,7 +84,9 @@
 #define IDC_IIRGAININFO                 1058
 #define IDD_TREMELO1                    1058
 #define IDC_DISPLAY_GAIN                1059
+#define IDD_CHORUS                      1059
 #define IDC_DYNAMICSDISPLAY_GAIN        1060
+#define IDD_CHORUS1                     1060
 #define IDC_DISPLAY_PEAK                1061
 #define IDC_DYNAMICSDISPLAY_PEAK        1062
 #define IDC_IIRTYPE                     1063
@@ -192,6 +193,23 @@
 #define IDC_TREMELOFREQLAB1             1157
 #define IDC_TREMELODEPTH1               1158
 #define IDC_TREMELODEPTHLAB1            1159
+#define IDC_CHORUSDELAYMS               1160
+#define IDC_CHORUSDELAYLAB              1161
+#define IDC_CHORUSDEPTHMS               1162
+#define IDC_CHORUSDEPTHMSLAB            1163
+#define IDC_CHORUSLFOFREQ               1164
+#define IDC_CHORUSLFOFREQLAB            1165
+#define IDC_CHORUSDRYWET                1166
+#define IDC_CHORUSDRYWETLAB             1167
+#define IDC_CHORUSDELAYMS1              1168
+#define IDC_CHORUSDELAYLAB1             1169
+#define IDC_CHORUSDEPTHMSLAB1           1170
+#define IDC_CHORUSLFOFREQ1              1171
+#define IDC_CHORUSLFOFREQLAB1           1172
+#define IDC_CHORUSDRYWET1               1173
+#define IDC_CHORUSDRYWETLAB1            1174
+#define IDC_CHORUSENABLED               1175
+#define IDC_CHORUSDEPTHMS1              1176
 #define IDC_SLIDER                      -1
 
 // Next default values for new objects
@@ -200,7 +218,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        123
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1160
+#define _APS_NEXT_CONTROL_VALUE         1177
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

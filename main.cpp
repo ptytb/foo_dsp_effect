@@ -8,7 +8,7 @@ static pfc::string_formatter g_get_component_about()
 	pfc::string_formatter about;
 	about << "A special effect DSP for foobar2000 1.3 ->\n";
 	about << "Written by mudlord.\n";
-	about << "Portions by Jon Watte, Jezar Wakefield, Chris Moeller, Gian-Carlo Pascutto.\n";
+	about << "Portions by Jon Watte, Jezar Wakefield, Chris Snowhill, Gian-Carlo Pascutto.\n";
 	about << "Using SoundTouch library version "<< SOUNDTOUCH_VERSION << "\n";
 	about << "SoundTouch (c) Olli Parviainen\n";
 	return about;
@@ -29,30 +29,33 @@ public:
 		switch (p_index)
 		{
 		case 0:
-			::DynamicsMainMenuWindow();
+			::ChorusMainMenuWindow();
 			break;
 		case 1:
-			::EchoMainMenuWindow();
+			::DynamicsMainMenuWindow();
 			break;
 		case 2:
-			::IIRMainMenuWindow();
+			::EchoMainMenuWindow();
 			break;
 		case 3:
-			::PhaserMainMenuWindow();
+			::IIRMainMenuWindow();
 			break;
 		case 4:
-			::PitchMainMenuWindow();
+			::PhaserMainMenuWindow();
 			break;
 		case 5:
-			::ReverbMainMenuWindow();
+			::PitchMainMenuWindow();
 			break;
 		case 6:
-			::TremeloMainMenuWindow();
+			::ReverbMainMenuWindow();
 			break;
 		case 7:
-			::VibratoMainMenuWindow();
+			::TremeloMainMenuWindow();
 			break;
 		case 8:
+			::VibratoMainMenuWindow();
+			break;
+		case 9:
 			::WahMainMenuWindow();
 			break;
 		}
@@ -62,7 +65,7 @@ public:
 
 	t_uint32 get_command_count()
 	{
-		return 9;
+		return 10;
 	}
 
 	GUID get_parent() { return g_mainmenu_group_id; }
@@ -79,37 +82,41 @@ public:
 		{
 		case 0:
 			p_out.reset();
-			p_out += "Dynamics Compressor";
+			p_out += "Chorus";
 			break;
 		case 1:
 			p_out.reset();
-			p_out += "Echo";
+			p_out += "Dynamics Compressor";
 			break;
 		case 2:
 			p_out.reset();
-			p_out += "IIR Filter";
+			p_out += "Echo";
 			break;
 		case 3:
 			p_out.reset();
-			p_out += "Phaser";
+			p_out += "IIR Filter";
 			break;
 		case 4:
 			p_out.reset();
-			p_out += "Pitch/Tempo/Playback Rate Shift";
+			p_out += "Phaser";
 			break;
 		case 5:
 			p_out.reset();
-			p_out += "Reverb";
+			p_out += "Pitch/Tempo/Playback Rate Shift";
 			break;
 		case 6:
 			p_out.reset();
-			p_out += "Tremolo";
+			p_out += "Reverb";
 			break;
 		case 7:
 			p_out.reset();
-			p_out += "Vibrato";
+			p_out += "Tremolo";
 			break;
 		case 8:
+			p_out.reset();
+			p_out += "Vibrato";
+			break;
+		case 9:
 			p_out.reset();
 			p_out += "WahWah";
 			break;
@@ -124,30 +131,33 @@ public:
 		switch (p_index)
 		{
 		case 0:
-			p_out = "Opens a window for realtime dynamics compression control.";
+			p_out = "Opens a window for chorus control.";
 			break;
 		case 1:
-			p_out = "Opens a window for echo adjustment.";
+			p_out = "Opens a window for realtime dynamics compression control.";
 			break;
 		case 2:
-			p_out = "Opens a window for realtime IIR filtering control.";
+			p_out = "Opens a window for echo adjustment.";
 			break;
 		case 3:
-			p_out = "Opens a window for cycling phase modulation control.";
+			p_out = "Opens a window for realtime IIR filtering control.";
 			break;
 		case 4:
-			p_out = "Opens a window for pitch/tempo/playback rate control.";
+			p_out = "Opens a window for cycling phase modulation control.";
 			break;
 		case 5:
-			p_out = "Opens a window for reverberation adjustment.";
+			p_out = "Opens a window for pitch/tempo/playback rate control.";
 			break;
 		case 6:
-			p_out = "Opens a window for tremolo control.";
+			p_out = "Opens a window for reverberation adjustment.";
 			break;
 		case 7:
-			p_out = "Opens a window for vibrato control.";
+			p_out = "Opens a window for tremolo control.";
 			break;
 		case 8:
+			p_out = "Opens a window for vibrato control.";
+			break;
+		case 9:
 			p_out = "Opens a window for wah effect control.";
 			break;
 		}
@@ -162,30 +172,33 @@ public:
 		switch (p_index)
 		{
 		case 0:
-			p_text = "Dynamics Compressor";
+			p_text = "Chorus";
 			break;
 		case 1:
-			p_text = "Echo";
+			p_text = "Dynamics Compressor";
 			break;
 		case 2:
-			p_text = "IIR Filter";
+			p_text = "Echo";
 			break;
 		case 3:
-			p_text = "Phaser";
+			p_text = "IIR Filter";
 			break;
 		case 4:
-			p_text = "Pitch/Tempo/Playback Rate";
+			p_text = "Phaser";
 			break;
 		case 5:
-			p_text = "Reverb";
+			p_text = "Pitch/Tempo/Playback Rate";
 			break;
 		case 6:
-			p_text = "Tremolo";
+			p_text = "Reverb";
 			break;
 		case 7:
-			p_text = "Vibrato";
+			p_text = "Tremolo";
 			break;
 		case 8:
+			p_text = "Vibrato";
+			break;
+		case 9:
 			p_text = "WahWah";
 			break;
 		}
