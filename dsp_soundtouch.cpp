@@ -97,11 +97,11 @@ public:
 			delete rubber;
 			for (int c = 0; c < m_ch; ++c)
 			{
-				delete plugbuf[c]; plugbuf[c] = NULL;
-				delete m_scratch[c]; m_scratch[c] = NULL;
+				delete[] plugbuf[c]; plugbuf[c] = NULL;
+				delete[] m_scratch[c]; m_scratch[c] = NULL;
 			}
-			delete plugbuf;
-			delete m_scratch;
+			delete[] plugbuf;
+			delete[] m_scratch;
 			m_scratch = NULL;
 			plugbuf = NULL;
 			rubber = 0;
@@ -173,6 +173,17 @@ public:
 			{
 				
 				RubberBandStretcher::Options options = RubberBandStretcher::DefaultOptions | RubberBandStretcher::OptionProcessRealTime | RubberBandStretcher::OptionPitchHighQuality;
+				
+				if (rubber) delete rubber;
+				if (plugbuf) {
+					for (int c = 0; c < m_ch; ++c) delete[] plugbuf[c];
+					delete[] plugbuf;
+				}
+				if (m_scratch) {
+					for (int c = 0; c < m_ch; ++c) delete[] m_scratch[c];
+					delete[] m_scratch;
+				}
+
 				rubber = new RubberBandStretcher(m_rate, m_ch, options, 1.0, pow(2.0, pitch_amount / 12.0));
 				if (!rubber) return 0;
 				plugbuf = new float*[m_ch];
@@ -190,6 +201,9 @@ public:
 
 				sample_buffer.set_size(BUFFER_SIZE*m_ch);
 				samplebuf.set_size(BUFFER_SIZE*m_ch);
+				
+				if (p_soundtouch) delete p_soundtouch;
+				
 				p_soundtouch = new SoundTouch;
 				if (!p_soundtouch) return 0;
 				if (p_soundtouch)
@@ -402,11 +416,11 @@ public:
 			delete rubber;
 			for (int c = 0; c < m_ch; ++c)
 			{
-				delete plugbuf[c]; plugbuf[c] = NULL;
-				delete m_scratch[c]; m_scratch[c] = NULL;
+				delete[] plugbuf[c]; plugbuf[c] = NULL;
+				delete[] m_scratch[c]; m_scratch[c] = NULL;
 			}
-			delete plugbuf;
-			delete m_scratch;
+			delete[] plugbuf;
+			delete[] m_scratch;
 			m_scratch = NULL;
 			plugbuf = NULL;
 			rubber = 0;
@@ -482,6 +496,17 @@ public:
 			{
 				RubberBandStretcher::Options options = RubberBandStretcher::DefaultOptions | RubberBandStretcher::OptionProcessRealTime | RubberBandStretcher::OptionPitchHighQuality;
 				float ratios = pitch_amount >= 1.0 ? 1.0 - (0.01 * pitch_amount) : 1.0 + 0.01 *-pitch_amount;
+				
+				if (rubber) delete rubber;
+				if (plugbuf) {
+					for (int c = 0; c < m_ch; ++c) delete[] plugbuf[c];
+					delete[] plugbuf;
+				}
+				if (m_scratch) {
+					for (int c = 0; c < m_ch; ++c) delete[] m_scratch[c];
+					delete[] m_scratch;
+				}
+
 				rubber = new RubberBandStretcher(m_rate, m_ch, options, ratios, 1.0);
 				m_scratch = new float *[m_ch];
 				plugbuf = new float *[m_ch];
@@ -498,6 +523,7 @@ public:
 			{
 				sample_buffer.set_size(BUFFER_SIZE*m_ch);
 				samplebuf.set_size(BUFFER_SIZE*m_ch);
+				if (p_soundtouch) delete p_soundtouch;
 				p_soundtouch = new SoundTouch;
 				if (!p_soundtouch) return 0;
 				if (p_soundtouch)
@@ -735,6 +761,7 @@ public:
 			m_rate = chunk->get_srate();
 			m_ch = chunk->get_channels();
 			m_ch_mask = chunk->get_channel_config();
+			if (p_soundtouch) delete p_soundtouch;
 			p_soundtouch = new SoundTouch;
 			sample_buffer.set_size(BUFFER_SIZE*m_ch);
 			if (!p_soundtouch) return 0;

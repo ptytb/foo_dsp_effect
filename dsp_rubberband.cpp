@@ -64,7 +64,15 @@ public:
 		{
 		   insert_chunks();
 		}
-		delete rubber;
+		if (rubber) delete rubber;
+		if (plugbuf) {
+			for (int c = 0; c < m_ch; ++c) delete[] plugbuf[c];
+			delete[] plugbuf;
+		}
+		if (m_scratch) {
+			for (int c = 0; c < m_ch; ++c) delete[] m_scratch[c];
+			delete[] m_scratch;
+		}
 	    rubber = 0;
 	}
 
@@ -110,7 +118,18 @@ public:
 			m_ch_mask = chunk->get_channel_config();
 
 			RubberBandStretcher::Options options = RubberBandStretcher::DefaultOptions;
-			options |= RubberBandStretcher::OptionProcessRealTime|RubberBandStretcher::OptionPitchHighQuality;
+			options |= RubberBandStretcher::OptionProcessRealTime | RubberBandStretcher::OptionPitchHighQuality;
+
+			if (rubber) delete rubber;
+			if (plugbuf) {
+				for (int c = 0; c < m_ch; ++c) delete[] plugbuf[c];
+				delete[] plugbuf;
+			}
+			if (m_scratch) {
+				for (int c = 0; c < m_ch; ++c) delete[] m_scratch[c];
+				delete[] m_scratch;
+			}
+
 			rubber = new RubberBandStretcher(m_rate,m_ch,options,1.0, pow(2.0, pitch_amount / 12.0));
 			if (!rubber) return 0;
 			sample_buffer.set_size(BUFFER_SIZE*m_ch);
@@ -319,6 +338,7 @@ public:
 		buffered = 0;
 		rubber = 0;
 		plugbuf = NULL;
+		m_scratch = NULL;
 		parse_preset(pitch_amount, in);
 		st_enabled = true;
 	}
@@ -374,6 +394,17 @@ public:
 
 			RubberBandStretcher::Options options = RubberBandStretcher::DefaultOptions;
 			options |= RubberBandStretcher::OptionProcessRealTime | RubberBandStretcher::OptionPitchHighQuality;
+			
+			if (rubber) delete rubber;
+			if (plugbuf) {
+				for (int c = 0; c < m_ch; ++c) delete[] plugbuf[c];
+				delete[] plugbuf;
+			}
+			if (m_scratch) {
+				for (int c = 0; c < m_ch; ++c) delete[] m_scratch[c];
+				delete[] m_scratch;
+			}
+
 			rubber = new RubberBandStretcher(m_rate, m_ch, options, 1.0 + 0.01 *-pitch_amount, 1.0);
 			if (!rubber) return 0;
 			sample_buffer.set_size(BUFFER_SIZE*m_ch);
